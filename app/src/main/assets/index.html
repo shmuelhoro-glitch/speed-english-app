@@ -87,7 +87,7 @@ function choose(w,btn){if(locked)return;locked=true;clearInterval(interval);stat
   $('feedback').textContent='✓ נכון!';btn.classList.add('correct');
   if(mode==='learn'&&state.streak>=15){state.streak=0;learnSeen.clear();
    if(state.unlocked<MAX_POOL){state.unlocked+=100;state.selected=state.unlocked;unlockedNow=true;
-    $('feedback').textContent=`🎉 נפתח מאגר ${state.unlocked} מילים! אפשר לבחור אותו במסך הבית.`;
+    $('feedback').textContent=`🎉 נפתחה רמה חדשה! ממשיכים אוטומטית ל־${state.unlocked} מילים.`;
    }else{$('feedback').textContent='🏆 כל קבוצות המילים הזמינות פתוחות!'}
   }
   }else{if(mode==='learn'){state.streak=0;learnSeen.clear()}$('feedback').textContent='✗ התשובה: '+(mode==='reverse'?current.en:current.he);
@@ -95,7 +95,7 @@ function choose(w,btn){if(locked)return;locked=true;clearInterval(interval);stat
  }
  [...$('answers').children].forEach(b=>b.disabled=true);persist();
  pending=setTimeout(()=>{pending=null;if(!$('game').classList.contains('hidden')){
-  if(unlockedNow)show('home');else next()
+  next()
  }},unlockedNow?2300:ok?750:1600)
 }
 function renderStats(){$('unlocked').textContent=state.unlocked;$('streak').textContent=state.streak;$('best').textContent=state.best;$('accuracy').textContent=state.total?Math.round(state.correct/state.total*100)+'%':'0%'}
