@@ -2,6 +2,9 @@ package com.speedenglish.hebrew;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -24,6 +27,18 @@ public class MainActivity extends Activity {
         }
     }
 
+    public class HapticBridge {
+        @JavascriptInterface public void vibrate(boolean correct) {
+            runOnUiThread(() -> {
+                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                if (vibrator != null && vibrator.hasVibrator()) {
+                    long duration = correct ? 35 : 85;
+                    vibrator.vibrate(VibrationEffect.createOneShot(duration, correct ? 90 : 155));
+                }
+            });
+        }
+    }
+
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(Color.rgb(62, 18, 91));
@@ -38,11 +53,17 @@ public class MainActivity extends Activity {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
+        settings.setSupportZoom(false);
+        settings.setBuiltInZoomControls(false);
+        settings.setDisplayZoomControls(false);
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(false);
         settings.setAllowFileAccessFromFileURLs(false);
         settings.setAllowUniversalAccessFromFileURLs(false);
         webView.addJavascriptInterface(new SpeechBridge(), "AndroidSpeech");
+        webView.addJavascriptInterface(new HapticBridge(), "AndroidHaptics");
         setContentView(webView);
         webView.loadUrl("file:///android_asset/index.html");
     }
