@@ -11,8 +11,8 @@ main{width:100%;max-width:520px;min-height:100svh;min-height:100dvh;padding:clam
 @media(max-width:360px){main{padding-inline:10px}.level-grid{gap:5px}.level-tile{min-height:46px}.top .pill{font-size:11px}}
 @media(max-height:740px){main{gap:4px}.foot{font-size:10px}.screen#home .hero{margin:4px 0}.selector-note{line-height:1.3}.level-grid{max-height:25dvh;min-height:70px}.level-tile{min-height:43px}#game .timer{margin:6px auto 3px;width:46px;height:46px}#game .answers{margin:7px 0;gap:6px}#game .answer{min-height:48px}#game .tools{margin:4px}}
 @media(orientation:landscape) and (max-height:520px){.screen#home{overflow:auto}.level-grid{max-height:28dvh}#game{overflow-y:auto;justify-content:flex-start}#game .timer{width:38px;height:38px}#game .answers{grid-template-columns:1fr 1fr}}
-</style></head><body><main><header class="top"><div class="logo">SPEED<small>english</small></div><span class="pill" id="headerLevel">100 המילים הראשונות</span><button class="icon" id="homeBtn" title="מסך הבית" aria-label="מסך הבית">⌂</button></header>
-<section id="home" class="screen"><div class="center"><div class="hero">SPEED ENGLISH · מילים ותכנות</div><p class="subtitle">לומדים אנגלית במהירות — בוחרים את התרגום הנכון מתוך ארבע תשובות.</p></div><div class="selector-title">בחר גודל מאגר מילים</div><p class="selector-note">כל 15 תשובות נכונות ברצף פותחות 100 מילים נוספות. אפשר לחזור לכל מאגר שכבר נפתח.</p><div class="level-grid" id="levelGrid"></div><div class="selection" id="selectionText"></div><button class="primary" id="startBtn">▶ התחל לשחק</button><button class="secondary" id="statsBtn">▤ התקדמות ונתונים</button><label class="switch"><input type="checkbox" id="timed" checked> משחק עם שעון (15 שניות לשאלה)</label><p id="notice">גרסה חדשה בהשראת המשחק הישן. חוק ההתקדמות: 15 תשובות נכונות ברצף פותחות קבוצת מילים נוספת. המילים מסודרות בקבוצות קושי מדורגות. כולל אוצר מילים יומיומי ומונחים נפוצים מפייתון ומתיעוד תוכנה. רמות הקושי מוינו מחדש לפי שימושיות ומורכבות בקירוב; זהו דירוג ראשוני ולא מדד שכיחות מאומת. מאגר המילים עדיין בהרחבה.</p></section>
+.mode-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}.mode-btn{border:1px solid #b88cd0;background:#ffffff19;color:#fff;border-radius:12px;min-height:52px;padding:8px;font-weight:700}.mode-btn.active{background:#ffe923;color:#35134a;border-color:#ffe923}.practice-config{display:flex;gap:8px;align-items:center;margin:8px 0}.practice-config select{flex:1;min-width:0;background:#f8f1fa;color:#35134a;border:0;border-radius:9px;padding:10px;font:inherit}.mode-label{text-align:center;color:#ffe923;font-size:13px;margin:5px 0}@media(max-height:740px){.mode-picker{gap:5px;margin:5px 0}.mode-btn{min-height:43px}.practice-config{margin:4px 0}}</style></head><body><main><header class="top"><div class="logo">SPEED<small>english</small></div><span class="pill" id="headerLevel">100 המילים הראשונות</span><button class="icon" id="homeBtn" title="מסך הבית" aria-label="מסך הבית">⌂</button></header>
+<section id="home" class="screen"><div class="center"><div class="hero">SPEED ENGLISH · מילים ותכנות</div><p class="subtitle">לומדים אנגלית במהירות — בוחרים את התרגום הנכון מתוך ארבע תשובות.</p></div><div class="selector-title">בחר סוג משחק</div><div class="mode-picker"><button class="mode-btn active" data-mode="learn">🎯 לימוד רמות</button><button class="mode-btn" data-mode="review">⚡ תרגום מהיר</button><button class="mode-btn" data-mode="reverse">🔄 תרגום הפוך</button></div><div class="mode-label" id="modeDescription">15 מילים חדשות שונות ברצף לפתיחת הרמה הבאה</div><div class="practice-config hidden" id="practiceConfig"><label for="practicePool">תרגול:</label><select id="practicePool"><option value="all">כל המאגר הפתוח</option></select></div><div class="selector-title" id="levelTitle">בחר גודל מאגר מילים</div><p class="selector-note">כל 15 תשובות נכונות ברצף פותחות 100 מילים נוספות. אפשר לחזור לכל מאגר שכבר נפתח.</p><div class="level-grid" id="levelGrid"></div><div class="selection" id="selectionText"></div><button class="primary" id="startBtn">▶ התחל לשחק</button><button class="secondary" id="statsBtn">▤ התקדמות ונתונים</button><label class="switch"><input type="checkbox" id="timed" checked> משחק עם שעון (15 שניות לשאלה)</label><p id="notice">גרסה חדשה בהשראת המשחק הישן. חוק ההתקדמות: 15 תשובות נכונות ברצף פותחות קבוצת מילים נוספת. המילים מסודרות בקבוצות קושי מדורגות. כולל אוצר מילים יומיומי ומונחים נפוצים מפייתון ומתיעוד תוכנה. רמות הקושי מוינו מחדש לפי שימושיות ומורכבות בקירוב; זהו דירוג ראשוני ולא מדד שכיחות מאומת. מאגר המילים עדיין בהרחבה.</p></section>
 <section id="game" class="screen hidden"><div class="level" id="levelText"></div><div class="progress"><div id="bar"></div></div><div class="timer" id="timer">15</div><div class="word" id="word" lang="en"></div><div class="tools"><button class="icon" id="speak" aria-label="השמע מילה" title="השמע מילה">🔊</button><button class="icon" id="skip" aria-label="דלג" title="דלג">↻</button></div><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div></section>
 <section id="stats" class="screen hidden"><h1 class="center">ההתקדמות שלי</h1><div class="stat"><div><strong id="unlocked">100</strong>מילים פתוחות</div><div><strong id="streak">0</strong>רצף נוכחי</div><div><strong id="best">0</strong>רצף שיא</div><div><strong id="accuracy">0%</strong>דיוק</div></div><button class="primary" id="backBtn">חזרה למשחק</button><button class="secondary" id="resetBtn">איפוס התקדמות</button></section><footer class="foot">Speed English • גרסה עצמאית בעברית</footer></main>
 <script>
@@ -24,10 +24,12 @@ const fresh=()=>({unlocked:100,selected:100,streak:0,best:0,correct:0,total:0});
 let state;try{state={...fresh(),...JSON.parse(localStorage.getItem(KEY))}}catch{state=fresh()}
 state.unlocked=Math.max(100,Math.min(MAX_POOL,Math.ceil((state.unlocked||100)/100)*100));
 state.selected=Math.max(100,Math.min(state.unlocked,Math.ceil((state.selected||state.unlocked)/100)*100));
-let current=null,interval=null,remaining=15,locked=false,previous=[],pending=null;
+let current=null,interval=null,remaining=15,locked=false,previous=[],pending=null,mode='learn',practicePool='all',learnSeen=new Set();
 const $=id=>document.getElementById(id);
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){console.warn('שמירת ההתקדמות אינה זמינה',e)}}
 function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function renderPracticeOptions(){const select=$('practicePool'),old=select.value||practicePool;select.replaceChildren();const all=document.createElement('option');all.value='all';all.textContent='כל המאגר הפתוח';select.append(all);for(let n=100;n<=state.unlocked;n+=100){const option=document.createElement('option');option.value=String(n);option.textContent='רמה '+(n/100)+' · מילים '+(n-99)+'–'+n;select.append(option)}select.value=[...select.options].some(x=>x.value===old)?old:'all';practicePool=select.value}
+function updateModeUI(){const learn=mode==='learn';$('levelGrid').classList.toggle('hidden',!learn);$('levelTitle').classList.toggle('hidden',!learn);$('selectionText').classList.toggle('hidden',!learn);$('practiceConfig').classList.toggle('hidden',learn);$('modeDescription').textContent=learn?'15 מילים חדשות שונות ברצף לפתיחת הרמה הבאה':'תרגול חופשי · בלי פתיחת רמות ובלי השפעה על רצף הלימוד';document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));$('startBtn').textContent=learn?'▶ התחל ללמוד':'▶ התחל לתרגל';renderPracticeOptions()}
 function renderLevels(){
  const grid=$('levelGrid');grid.replaceChildren();
  for(let n=100;n<=MAX_POOL;n+=100){
@@ -45,31 +47,34 @@ function renderLevels(){
 function show(id){clearInterval(interval);clearTimeout(pending);pending=null;
  for(const name of ['home','game','stats'])$(name).classList.toggle('hidden',name!==id);
  $('headerLevel').textContent=`${state.unlocked} מילים פתוחות`;
- if(id==='home')renderLevels();if(id==='stats')renderStats();
+ if(id==='home'){renderLevels();updateModeUI()}if(id==='stats')renderStats();
 }
 function next(){clearInterval(interval);locked=false;$('feedback').textContent='';
  $('bar').style.width=`${state.streak/15*100}%`;
  // בחירת גודל מאגר N משמעה תרגול מתוך N המילים הראשונות.
- const pool=words.slice(0,state.selected);
+ const pool=mode==='learn'?words.slice(Math.max(0,state.unlocked-100),state.unlocked):practicePool==='all'?words.slice(0,state.unlocked):words.slice(Number(practicePool)-100,Number(practicePool));
  const candidates=pool.filter(w=>!previous.includes(w.en));
- current=candidates[Math.floor(Math.random()*candidates.length)]||pool[Math.floor(Math.random()*pool.length)];
+ const available=mode==='learn'?candidates.filter(w=>!learnSeen.has(w.en)):candidates;
+ const choices=available.length?available:mode==='learn'?pool.filter(w=>!learnSeen.has(w.en)):pool;
+ current=choices[Math.floor(Math.random()*choices.length)];
  if(!current){show('home');return}
  previous.push(current.en);if(previous.length>Math.min(25,pool.length-1))previous.shift();
- $('word').textContent=current.en;
- $('levelText').textContent=`${state.streak} מתוך 15 נכונות ברצף · מאגר ${state.selected} מילים`;
+ $('word').textContent=mode==='reverse'?current.he:current.en;
+ $('word').setAttribute('lang',mode==='reverse'?'he':'en');$('word').style.direction=mode==='reverse'?'rtl':'ltr';
+ $('levelText').textContent=mode==='learn'?'רמה '+(state.unlocked/100)+' · '+state.streak+' מתוך 15 מילים חדשות ברצף':'תרגול '+(mode==='review'?'תרגום מהיר':'תרגום הפוך')+' · '+(practicePool==='all'?'כל המאגר הפתוח':'רמה '+(Number(practicePool)/100));
  // Do not present duplicate Hebrew answers (including punctuation/spacing variants).
  const normalizeAnswer=s=>s.normalize('NFKC').replace(/[\u0591-\u05C7]/g,'').replace(/[\s\u200e\u200f]+/g,' ').trim();
- const used=new Set([normalizeAnswer(current.he)]);
+ const used=new Set([normalizeAnswer(mode==='reverse'?current.en:current.he)]);
  const distractors=[];
  for(const w of shuffle(pool)){
-  const label=normalizeAnswer(w.he);
+  const label=normalizeAnswer(mode==='reverse'?w.en:w.he);
   if(w.en===current.en || used.has(label))continue;
   used.add(label);distractors.push(w);
   if(distractors.length===3)break;
  }
  const opts=shuffle([current,...distractors]);
  const area=$('answers');area.replaceChildren();opts.forEach((w,i)=>{
- const b=document.createElement('button');b.className='answer';b.textContent=`${i+1}. ${w.he}`;
+ const b=document.createElement('button');b.className='answer';b.textContent=`${i+1}. ${mode==='reverse'?w.en:w.he}`;
  b.onclick=()=>choose(w,b);area.append(b)
  });
  remaining=15;$('timer').textContent=$('timed').checked?'15':'∞';
@@ -77,15 +82,15 @@ function next(){clearInterval(interval);locked=false;$('feedback').textContent='
 }
 function choose(w,btn){if(locked)return;locked=true;clearInterval(interval);state.total++;
  const ok=!!w&&w.en===current.en;let unlockedNow=false;
- if(ok){state.correct++;state.streak++;state.best=Math.max(state.best,state.streak);
+ if(ok){state.correct++;if(mode==='learn'){learnSeen.add(current.en);state.streak++;state.best=Math.max(state.best,state.streak)}
   $('feedback').textContent='✓ נכון!';btn.classList.add('correct');
-  if(state.streak>=15){state.streak=0;
+  if(mode==='learn'&&state.streak>=15){state.streak=0;learnSeen.clear();
    if(state.unlocked<MAX_POOL){state.unlocked+=100;state.selected=state.unlocked;unlockedNow=true;
     $('feedback').textContent=`🎉 נפתח מאגר ${state.unlocked} מילים! אפשר לבחור אותו במסך הבית.`;
    }else{$('feedback').textContent='🏆 כל קבוצות המילים הזמינות פתוחות!'}
   }
- }else{state.streak=0;$('feedback').textContent=`✗ התשובה: ${current.he}`;
-  if(btn)btn.classList.add('wrong');[...$('answers').children].find(b=>b.textContent.endsWith(current.he))?.classList.add('correct')
+  }else{if(mode==='learn'){state.streak=0;learnSeen.clear()}$('feedback').textContent='✗ התשובה: '+(mode==='reverse'?current.en:current.he);
+  if(btn)btn.classList.add('wrong');[...$('answers').children].find(b=>b.textContent.endsWith(mode==='reverse'?current.en:current.he))?.classList.add('correct')
  }
  [...$('answers').children].forEach(b=>b.disabled=true);persist();
  pending=setTimeout(()=>{pending=null;if(!$('game').classList.contains('hidden')){
@@ -93,11 +98,12 @@ function choose(w,btn){if(locked)return;locked=true;clearInterval(interval);stat
  }},unlockedNow?2300:ok?750:1600)
 }
 function renderStats(){$('unlocked').textContent=state.unlocked;$('streak').textContent=state.streak;$('best').textContent=state.best;$('accuracy').textContent=state.total?Math.round(state.correct/state.total*100)+'%':'0%'}
-$('startBtn').onclick=()=>{show('game');next()};
+document.querySelectorAll('.mode-btn').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;previous=[];learnSeen.clear();updateModeUI()});$('practicePool').onchange=e=>{practicePool=e.target.value;previous=[]};
+$('startBtn').onclick=()=>{previous=[];learnSeen.clear();show('game');next()};
 $('statsBtn').onclick=()=>show('stats');$('homeBtn').onclick=()=>show('home');
 $('backBtn').onclick=()=>show('home');
 $('skip').onclick=()=>choose(null,null);
-$('speak').onclick=()=>{if(!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(current.en);u.lang='en-US';u.rate=.85;window.speechSynthesis.speak(u)};
+$('speak').onclick=()=>{if(mode==='reverse'||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(current.en);u.lang='en-US';u.rate=.85;window.speechSynthesis.speak(u)};
 $('resetBtn').onclick=()=>{if(confirm('לאפס את כל ההתקדמות?')){state=fresh();persist();renderStats();show('home')}};
 document.addEventListener('keydown',e=>{if(!$('game').classList.contains('hidden')&&!locked&&['1','2','3','4'].includes(e.key))$('answers').children[Number(e.key)-1]?.click()});
 persist();show('home');
